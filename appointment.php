@@ -114,7 +114,6 @@
       const toastEl = document.getElementById('toastSuccess');
       const toast = new bootstrap.Toast(toastEl);
       toast.show();
-      // Clear the query params
       const newUrl = window.location.pathname;
       window.history.replaceState({}, document.title, newUrl);
     }
