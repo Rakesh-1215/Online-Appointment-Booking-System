@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="home.php" target="_self">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.php" target="_self">
 
         <div class="bg-primary text-white fw-bold rounded-circle d-flex align-items-center justify-content-center"
           style="width: 40px; height: 40px;">
@@ -27,7 +27,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <a class="nav-link" href="home.php"> <strong>Home</strong></a>
+          <a class="nav-link" href="index.php"> <strong>Home</strong></a>
           <a class="nav-link" href="services.php"><strong>Services</strong></a>
           <a class="nav-link" href="./appointment.php"><strong>Appointment</strong></a>
           <a class="nav-link" href="history.php"><strong>History</strong></a>
