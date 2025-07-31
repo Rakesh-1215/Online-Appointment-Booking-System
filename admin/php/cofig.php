@@ -1,8 +1,12 @@
 <?php
-$host = "sql200.infinityfree.com";
-$user = "if0_39597420";
-$password = "rakesh7340"; 
-$database = "if0_39597420_appointment_dataBase"; 
+$host = "localhost"; 
+$user = "root";
+$password = ""; 
+$database = "health_care"; 
+// $host = "sql200.infinityfree.com";
+// $user = "if0_39597420";
+// $password = "rakesh7340"; 
+// $database = "if0_39597420_appointment_dataBase"; 
 
 $conn = mysqli_connect($host, $user, $password, $database);
 if (!$conn) {

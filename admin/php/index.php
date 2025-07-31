@@ -11,7 +11,10 @@ if (isset($_POST['submit'])) {
     $doctor     = $_POST['doctor'];
     $message    = $_POST['message'];
 
-    $ps = $mycon->prepare("INSERT INTO appointments (fullName, phone, email, appointment_date, shift, department, doctor, _message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+   
+    // $mycon = mysqli_connect("localhost", "root", "", "health_care");
+
+    $ps = $conn->prepare("INSERT INTO appointments (fullName, phone, email, appointment_date, shift, department, doctor, _message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $ps->bind_param("ssssssss", $name, $phone, $email, $date, $shift, $department, $doctor, $message);
 
     if ($ps->execute()) {
@@ -23,6 +26,6 @@ if (isset($_POST['submit'])) {
     }
 
     $ps->close();
-    $mycon->close();
+    $conn->close();
 }
 ?>
