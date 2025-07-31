@@ -7,7 +7,8 @@
 
     <div class="time-info text-center">
       <p><strong>Morning Shift:</strong> 8:00 AM - 12:00 PM |
-        <strong>Evening Shift:</strong> 6:00 PM - 9:00 PM (Weekdays Only)</p>
+        <strong>Evening Shift:</strong> 6:00 PM - 9:00 PM (Weekdays Only)
+      </p>
     </div>
 
     <form method="POST" action="/Project/admin/php/index.php" onsubmit="return bookConform()">
@@ -94,7 +95,8 @@
       <div id="toastSuccess" class="toast align-items-center text-white bg-success border-0" role="alert">
         <div class="d-flex">
           <div class="toast-body">Appointment booked successfully!</div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+          <!-- <button type="button" class="btn-close btn-close-white me-2 m-auto" name="name" data-bs-dismiss="toast"></button> -->
+           <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
       </div>
     </div>
@@ -108,7 +110,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  window.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === '0.5') {
       const toastEl = document.getElementById('toastSuccess');
