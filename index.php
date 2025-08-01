@@ -1,37 +1,75 @@
 <?php
-include 'header.php';
+session_start();
+$mycon = mysqli_connect("localhost", "root", "", "health_care");
+
+$error = '';
+
+if (isset($_POST['login'])) {
+    $email    = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $mycon->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id']   = $user['id'];
+            $_SESSION['user_name'] = $user['name'];
+            header("Location: home.php");
+            exit();
+        } else {
+            $error = "Incorrect password.";
+        }
+    } else {
+        $error = "No account found with this email.";
+    }
+
+    $stmt->close();
+}
 ?>
-  <section class="hero">
-    <div class="container text-center">
-      <h1 class="display-4 fw-bold">Book Your Appointment Online</h1>
-      <p class="lead">Trusted care for you and your family</p>
-      <a href="appointment.php" class="btn btn-primary btn-lg">Make an Appointment</a>
-    </div>
-  </section>
 
-  <section class="py-5 bg-white">
-    <div class="container">
-      <h2 class="text-center mb-4">Our Services</h2>
-      <div class="row text-center">
-        <div class="col-md-4 mb-4">
-          <i class="fa-solid fa-heartbeat fa-2x text-primary mb-2"></i>
-          <h5>Cardiology</h5>
-          <p>Expert care for heart conditions with advanced technology.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <i class="fa-solid fa-x-ray fa-2x text-primary mb-2"></i>
-          <h5>Orthopedics</h5>
-          <p>Comprehensive bone and joint care for all ages.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <i class="fa-solid fa-user-doctor fa-2x text-primary mb-2"></i>
-          <h5>General Medicine</h5>
-          <p>Full range of general and internal medicine services.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!DOCTYPE html>
+<html>
 
-  <?php
-  include 'footer.php';
-  ?>
+<head>
+    <title>User Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container mt-5 shadow  col-md-5 d-flex justify-content-center">
+        <div class="col-md-5">
+            <h3 class="text-center mb-4">User Login</h3>
+
+            <?php if ($error != ''): ?>
+                <div class="alert alert-danger"><?php echo $error; ?></div>
+            <?php endif; ?>
+
+            <form method="post" action="">
+                <div class="mb-3">
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control"/>
+                </div>
+                <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
+            </form>
+
+            <p class="text-center mt-3">
+                Don't have an account? <a href="register.php">Register here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
