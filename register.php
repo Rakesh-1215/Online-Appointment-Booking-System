@@ -29,6 +29,7 @@ if (isset($_POST['register'])) {
 <head>
     <title>User Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<<<<<<< HEAD
 
     <style>
            body {
@@ -42,6 +43,9 @@ if (isset($_POST['register'])) {
     </style>
 </head>
 
+=======
+</head>
+>>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
 <body class="bg-light">
 
 <div class="container mt-5">

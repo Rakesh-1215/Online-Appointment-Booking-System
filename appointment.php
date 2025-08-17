@@ -91,6 +91,7 @@
     </form>
 
     <!-- Toast container -->
+<<<<<<< HEAD
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;">
   <div id="toastSuccess" class="toast align-items-center text-white bg-success border-0"
        role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
@@ -101,6 +102,17 @@
   </div>
 </div>
 
+=======
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+      <div id="toastSuccess" class="toast align-items-center text-white bg-success border-0" role="alert">
+        <div class="d-flex">
+          <div class="toast-body">Appointment booked successfully!</div>
+          <!-- <button type="button" class="btn-close btn-close-white me-2 m-auto" name="name" data-bs-dismiss="toast"></button> -->
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+>>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
 
   </div>
 </div>
@@ -113,6 +125,7 @@
 <script>
   window.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
+<<<<<<< HEAD
 
     if (urlParams.get('success') === '1') {
       const toastEl = document.getElementById('toastSuccess');
@@ -122,8 +135,18 @@
 
     // Remove ?success=0.5 from URL after showing toast
     if (urlParams.has('success')) {
+=======
+    if (urlParams.get('success') === '0.5') {
+      const toastEl = document.getElementById('toastSuccess');
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
+>>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
       const newUrl = window.location.pathname;
       window.history.replaceState({}, document.title, newUrl);
     }
   });
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
