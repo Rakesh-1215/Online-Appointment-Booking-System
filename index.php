@@ -23,11 +23,7 @@ if (isset($_POST['login'])) {
             header("Location: home.php");
             exit();
         } else {
-<<<<<<< HEAD
             $error = "Incorrect password. Please try again.";
-=======
-            $error = "Incorrect password.";
->>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
         }
     } else {
         $error = "No account found with this email.";
@@ -38,7 +34,6 @@ if (isset($_POST['login'])) {
 ?>
 
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -56,18 +51,10 @@ if (isset($_POST['login'])) {
             border-radius: 15px;
         }
     </style>
-=======
-<html>
-
-<head>
-    <title>User Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
->>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
 </head>
 
 <body>
 
-<<<<<<< HEAD
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
@@ -101,39 +88,10 @@ if (isset($_POST['login'])) {
                     </div>
                 </div>
             </div>
-=======
-    <div class="container mt-5 shadow  col-md-5 d-flex justify-content-center">
-        <div class="col-md-5">
-            <h3 class="text-center mb-4">User Login</h3>
-
-            <?php if ($error != ''): ?>
-                <div class="alert alert-danger"><?php echo $error; ?></div>
-            <?php endif; ?>
-
-            <form method="post" action="">
-                <div class="mb-3">
-                    <label>Email Address</label>
-                    <input type="email" name="email" class="form-control"/>
-                </div>
-                <div class="mb-3">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control"/>
-                </div>
-                <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
-            </form>
-
-            <p class="text-center mt-3">
-                Don't have an account? <a href="register.php">Register here</a>
-            </p>
->>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 17aa43742d50cfeadfd3144f0be061891d6ffba6
